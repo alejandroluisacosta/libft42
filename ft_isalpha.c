@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:00:21 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/15 13:00:47 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/01/15 15:56:28 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int	ft_isalpha(int c)
     printf("isalpha: %d\n", result);
 
     int ft_result = ft_isalpha(c);
-    printf("ft_isalpha: %d\n", ft_result);
+		printf("ft_isalpha: %d\n", ft_result);
 
 }*/

@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:09:57 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/15 13:10:48 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/01/15 15:31:19 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	*ft_memset(void *b, int c, size_t len)
     char    *result = memset(b, 65, 5);
     printf("%s\n", result);
 
-    char    *ft_result = ft_memset(b, 66, 7);
+    char    *ft_result = ft_memset(b, 66, 5);
     printf("%s\n", ft_result);
 
     return (0);

@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:15:57 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/15 13:16:44 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/01/15 16:37:56 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,17 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 	i = 0;
 	if (dstsize > 0)
 	{
-		while (i < dstsize - 1)
+		if (!src[0])
+			dst[0] = '\0';
+		else
 		{
-			dst[i] = src[i];
-			i++;
+			while (i < dstsize - 1)
+			{
+				dst[i] = src[i];
+				i++;
+			}
+			dst[i] = '\0';
 		}
-		dst[i] = '\0';
 	}
 	i = 0;
 	while (src[i])
