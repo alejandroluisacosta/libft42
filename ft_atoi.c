@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:54:08 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/15 15:39:46 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/01/16 11:49:04 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	ft_atoi(char *str)
 		{
 			if (ft_isnum(str[i + 1]) == 0)
 				return (0);
+			else if (ft_isnum(str[i + 1]) == 1 && ft_isnum(str[i - 1]) == 1)
+				break ;
 			if (str[i] == '-')
 				sign *= -1;
 		}
@@ -56,7 +58,7 @@ int	ft_atoi(char *str)
 
 /*int   main(void)
 {
-	char    num[] = "   -a1234";
+	char    num[] = "-47-5";
 
 	printf("result: %d\n", atoi(num));
 	printf("ft_result: %d\n", ft_atoi(num));
