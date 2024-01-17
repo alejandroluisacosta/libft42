@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 11:18:59 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/16 13:19:34 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/01/17 16:29:05 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define LIBFT_H
 
 # include <stddef.h>
+# include <stdio.h>
+# include <string.h>
+# include <stdlib.h>
 
 // Primeras
 int		ft_isalpha(int c);
@@ -21,7 +24,7 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
-int		ft_strlen(char *str);
+size_t	ft_strlen(const char *str);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, void *src, size_t n);

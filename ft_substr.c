@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 16:24:02 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/17 10:14:02 by aacosta          ###   ########.fr       */
+/*   Created: 2024/01/17 10:14:22 by aacosta           #+#    #+#             */
+/*   Updated: 2024/01/17 15:48:55 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strdup(char *s1)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		len;
-	char	*p;
+	char	*sub;
 
-	len = ft_strlen(s1) + 1;
-	p = malloc(len * sizeof(char));
-	if (p == NULL)
+	sub = malloc(len + 1 * sizeof(char));
+	if (sub == NULL)
 		return (NULL);
-	ft_strlcpy(p, s1, len);
-	return (p);
+	if (start < ft_strlen((char *)s))
+		ft_strlcpy(sub, (char *)(s + start), len + 1);
+	else
+		sub[0] = '\0';
+	return (sub);
 }
 
-/*int main(void)
+/*int	main(void)
 {
-	char *s1 = "Hola";
-	char *p = strdup(s1);
-	printf("result:    %s\n", p);
-
-	char *s2 = "Hola";
-	char *q = ft_strdup(s2);
-	printf("ft_result: %s\n", q);
-
-	return (0);
+	char *s = "Hola";
+	char *sub = ft_substr(s, 400, 20);
+	printf("%s\n", sub);
 }*/
