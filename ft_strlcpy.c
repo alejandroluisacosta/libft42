@@ -6,12 +6,10 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:15:57 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/15 16:37:56 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/01/18 12:32:16 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
@@ -33,10 +31,7 @@ size_t	ft_strlcpy(char *dst, char *src, size_t dstsize)
 			dst[i] = '\0';
 		}
 	}
-	i = 0;
-	while (src[i])
-		i++;
-	return (i);
+	return (ft_strlen(src));
 }
 
 /*int   main(void)
