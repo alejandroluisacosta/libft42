@@ -6,28 +6,24 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:13:34 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/15 13:14:08 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/01/19 16:50:01 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
+	int	len;
 	int	i;
-	int	j;
 
+	len = ft_strlen(s);
 	i = 0;
-	while (s[i])
-		i++;
-	j = 0;
-	while (j <= i)
+	while (i <= len)
 	{
-		if (s[j] == c)
-			return (s + j);
-		j++;
+		if (s[i] == c)
+			return ((char *)s + i);
+		i++;
 	}
 	return (NULL);
 }
@@ -35,7 +31,7 @@ char	*ft_strchr(char *s, int c)
 /*int   main(void)
 {
     char    str[] = "Hello";
-    char    c = 'z';
+    char    c = '\0';
 
     int result = strchr(str, c) - str;
     printf("position: %d\n", result);
