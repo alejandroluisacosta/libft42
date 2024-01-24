@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:09:36 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/23 16:50:22 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/01/24 10:37:17 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,24 @@ int	digit_count(int n)
 
 char	*copy_min_integer(void)
 {
-	char str[11] = "-2147483648";
-	return (str); // NOT RETURNABLE BECAUSE STACK MEMORY. TRY CREATING STRING AND FTRLCPYING IT INTO MALLOC'D MEMORY
+	char	*min_int;
+	char	*str;
+
+	str = "-2147483648";
+	min_int = malloc(12 * sizeof(char));
+	ft_strlcpy(min_int, str, 12);
+	return (min_int);
 }
 
 char	*ft_itoa(int n)
 {
 	int		digits;
-	int		negative;
 	char	*str;
 
 	if (n == -2147483648)
 		return (copy_min_integer());
 	digits = digit_count(n);
-	str = malloc(digits + 1 *sizeof(char));	
+	str = malloc((digits + 1) * sizeof(char));
 	if (!str)
 		return (NULL);
 	str[digits] = '\0';
@@ -65,10 +69,10 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-int	main(void)
+/*int	main(void)
 {
-	int	n = -2147483648;
+	int	n = -2147483647;
 	char *str = ft_itoa(n);
 
 	printf("string: %s\n", str);
-}
+}*/
