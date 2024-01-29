@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 11:18:59 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/22 15:53:32 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/01/29 10:02:25 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <stdio.h>
 # include <string.h>
 # include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
 
 // Primeras
 int		ft_isalpha(int c);

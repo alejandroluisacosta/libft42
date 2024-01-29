@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:04:46 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/24 12:49:30 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/01/29 16:34:11 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	substr_count(char const *s, char c)
 			if (s[i] != c && s[i + 1] == c)
 				count++;
 		}
-		if (s[i] != c && s[i - 1] == c)
+		if (i > 0 && s[i] != c && s[i - 1] == c)
 			count++;
 		i++;
 	}
@@ -76,7 +76,7 @@ int	all_c(char const *s, char c)
 	i = 0;
 	while (s[i] == c)
 		i++;
-	if (!s[i])
+	if (!s[i] && i > 0)
 		return (1);
 	return (0);
 }
@@ -86,36 +86,38 @@ char	**ft_split(char const *s, char c)
 	int		sub_count;
 	char	**array;
 
-	if (!s)
-		return (NULL);
-	if (all_c(s, c))
-	{
-		array = malloc(1 * sizeof(char));
-		array[0] = NULL;
-		return (array);
-	}
 	sub_count = substr_count(s, c);
-	array = malloc((sub_count + 1) * sizeof(char *));
+	if (sub_count == 0 || ft_strlen(s) == 0)
+		array = malloc (2 * sizeof(char *));
+	else
+		array = malloc((sub_count + 1) * sizeof(char *));
 	if (!array)
 		return (NULL);
-	if (sub_count > 0)
-		substr_divide(array, s, c, sub_count);
-	else
+	if (sub_count == 0 || all_c(s, c))
 	{
-		array[0] = (char *)s;
+		if (all_c(s, c) || ft_strlen(s) == 0)
+			array[0] = NULL;
+		else
+			array[0] = substr_write((char *)s, ft_strlen(s), 0);
 		array[1] = NULL;
 	}
+	if (sub_count > 0)
+		substr_divide(array, s, c, sub_count);
 	return (array);
 }
 
 /*int	main(void)
 {
-	char *s = "Hola amigo mio";
-	char c = ' ';
+	char *s = "^^^1^^2a,^^^^3^^^^--h^^^^";
+	char c = '^';
 	char **array = ft_split(s, c);
 
-	for (int i = 0; i < 4; i++)
+	int i = 0;
+	while (array[i])
+	{
 		printf("%dth string: %s\n", i, array[i]);
+		i++;
+	}
 
 	return (0);
 }*/

@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 12:40:47 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/29 10:12:07 by aacosta          ###   ########.fr       */
+/*   Created: 2024/01/29 10:00:27 by aacosta           #+#    #+#             */
+/*   Updated: 2024/01/29 11:06:21 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, &c, 1);
+	int	i;
+
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }
 
 /*int	main(void)
 {
 	int file = open("file.txt", O_CREAT | O_RDWR, 0777);
-	ft_putchar_fd('a', file);	
-	close(file);
+	ft_putstr_fd("Hola\n", file);
+	close(file);	
 }*/
