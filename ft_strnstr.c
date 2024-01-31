@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:18:37 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/15 13:19:34 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/01/30 12:45:49 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,26 @@ char	*ft_strnstr(char *haystack, char *needle, size_t len)
 {
 	size_t	i;
 	size_t	j;
+	size_t	haystack_len;
 
 	if (needle[0] == '\0')
 		return (haystack);
-	i = 0;
-	while (i < len)
+	haystack_len = ft_strlen(haystack);
+	if (haystack[0])
 	{
-		if (haystack[i] == needle[0])
+		i = 0;
+		while (i < len)
 		{
-			j = 0;
-			while (haystack[i + j] == needle[j] && haystack[i + j])
-				j++;
-			if (needle[j] == '\0' && i + j <= len)
-				return (haystack + i);
+			if (i < haystack_len && haystack[i] == needle[0])
+			{
+				j = 0;
+				while (haystack[i + j] == needle[j] && haystack[i + j])
+					j++;
+				if (needle[j] == '\0' && i + j <= len)
+					return (haystack + i);
+			}
+			i++;
 		}
-		i++;
 	}
 	return (NULL);
 }
@@ -43,9 +48,9 @@ char	*ft_strnstr(char *haystack, char *needle, size_t len)
     char    needle[] = "ada";
 
     printf("%p\n\n", haystack);
-    printf("%p\n", strnstr(haystack, needle, strlen(haystack)));
+    printf("%p\n", strnstr("abc", "abcdef", 5));
 
-    printf("%p\n", ft_strnstr(haystack, needle, strlen(haystack)));
+    printf("%p\n", ft_strnstr("abc", "abcdef", 5));
 
     return (0);
 }*/

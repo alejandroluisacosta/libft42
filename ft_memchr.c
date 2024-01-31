@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:03:20 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/15 13:05:01 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/01/30 12:28:43 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memchr(void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (p[i] == c)
+		if (p[i] == (char)c)
 			return (p + i);
 		i++;
 	}

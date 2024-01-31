@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:04:46 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/29 16:34:11 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/01/31 16:09:09 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	substr_count(char const *s, char c)
 	int	i;
 	int	count;
 
+	if (!s || !c)
+		return (0);
 	i = 0;
 	count = 0;
 	while (s[i])
@@ -24,7 +26,10 @@ int	substr_count(char const *s, char c)
 		if (count == 0)
 		{
 			if (s[i] != c && s[i + 1] == c)
+			{
 				count++;
+				i++;
+			}
 		}
 		if (i > 0 && s[i] != c && s[i - 1] == c)
 			count++;
@@ -37,7 +42,7 @@ char	*substr_write(char const *s, int cut_point, int last_c)
 {
 	char	*substr;
 
-	substr = malloc((cut_point - last_c + 1) * sizeof(char));
+	substr = ft_calloc((cut_point - last_c + 1), sizeof(char));
 	if (substr == NULL)
 		return (NULL);
 	ft_strlcpy(substr, (s + last_c), (cut_point - last_c + 1));
@@ -61,12 +66,11 @@ void	substr_divide(char **array, char const *s, char c, int sub_count)
 				cut_point++;
 		}
 		last_c = cut_point;
-		while (s[cut_point] != c && s[cut_point])
+		while (s[cut_point] && s[cut_point] != c)
 			cut_point++;
 		array[copied_count] = substr_write(s, cut_point, last_c);
 		copied_count++;
 	}
-	array[sub_count] = NULL;
 }
 
 int	all_c(char const *s, char c)
@@ -88,18 +92,17 @@ char	**ft_split(char const *s, char c)
 
 	sub_count = substr_count(s, c);
 	if (sub_count == 0 || ft_strlen(s) == 0)
-		array = malloc (2 * sizeof(char *));
+		array = ft_calloc(2, sizeof(char *));
 	else
-		array = malloc((sub_count + 1) * sizeof(char *));
+		array = ft_calloc((sub_count + 1), sizeof(char *));
 	if (!array)
 		return (NULL);
-	if (sub_count == 0 || all_c(s, c))
+	if (!s || ft_strlen(s) == 0 || all_c(s, c) || sub_count == 0)
 	{
-		if (all_c(s, c) || ft_strlen(s) == 0)
+		if (!s[0] || all_c(s, c) || ft_strlen(s) == 0)
 			array[0] = NULL;
 		else
 			array[0] = substr_write((char *)s, ft_strlen(s), 0);
-		array[1] = NULL;
 	}
 	if (sub_count > 0)
 		substr_divide(array, s, c, sub_count);
@@ -108,9 +111,10 @@ char	**ft_split(char const *s, char c)
 
 /*int	main(void)
 {
-	char *s = "^^^1^^2a,^^^^3^^^^--h^^^^";
-	char c = '^';
-	char **array = ft_split(s, c);
+	char *s;
+	//char c = ' ';
+	s = "Hello";
+	char **array = ft_split(0, 0);
 
 	int i = 0;
 	while (array[i])

@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 13:07:49 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/15 13:09:36 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/01/30 11:51:01 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	*ft_memmove(void *dst, void *src, size_t len)
 	char	*destination;
 	char	*source;
 
+	if (!dst && !src)
+		return (NULL);
 	destination = (char *) dst;
 	source = (char *) src;
 	if (destination > source)
@@ -32,14 +34,7 @@ void	*ft_memmove(void *dst, void *src, size_t len)
 		}
 	}
 	else
-	{
-		i = 0;
-		while (i < len)
-		{
-			destination[i] = source[i];
-			i++;
-		}
-	}
+		ft_memcpy(dst, src, len);
 	return (dst);
 }
 

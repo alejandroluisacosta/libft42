@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:09:36 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/29 10:50:33 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/01/30 11:32:12 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	digit_count(int n)
 		n *= -1;
 		digits++;
 	}
-	while (n > 10)
+	while (n >= 10)
 	{
 		digits++;
 		n /= 10;
@@ -60,7 +60,7 @@ char	*ft_itoa(int n)
 	}
 	else if (n == 0)
 		str[0] = '0';
-	while (n % 10 > 0)
+	while (n > 0)
 	{
 		str[digits - 1] = (n % 10) + '0';
 		n /= 10;
@@ -71,7 +71,7 @@ char	*ft_itoa(int n)
 
 /*int	main(void)
 {
-	int	n = -2147483647;
+	int	n = 123;
 	char *str = ft_itoa(n);
 
 	printf("string: %s\n", str);

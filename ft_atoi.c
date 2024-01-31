@@ -6,20 +6,11 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:54:08 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/16 11:49:04 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/01/31 12:23:39 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "libft.h"
-
-int	ft_isnum(char c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
 
 int	ft_isspace(char c)
 {
@@ -28,7 +19,7 @@ int	ft_isspace(char c)
 	return (0);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
 	int	i;
 	int	value;
@@ -37,20 +28,17 @@ int	ft_atoi(char *str)
 	i = 0;
 	value = 0;
 	sign = 1;
-	while (str[i] && (ft_isnum(str[i]) == 1 || ft_isspace(str[i]) == 1
-			|| str[i] == '+' || str[i] == '-'))
+	while (str[i] && ft_isspace(str[i]))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		if (str[i] == '-' || str[i] == '+')
-		{
-			if (ft_isnum(str[i + 1]) == 0)
-				return (0);
-			else if (ft_isnum(str[i + 1]) == 1 && ft_isnum(str[i - 1]) == 1)
-				break ;
-			if (str[i] == '-')
-				sign *= -1;
-		}
-		else if (ft_isnum(str[i]))
-			value = value * 10 + (str[i] - '0');
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
+	}
+	while (ft_isdigit(str[i]))
+	{
+		value = value * 10 + (str[i] - '0');
 		i++;
 	}
 	return (value * sign);
@@ -58,10 +46,10 @@ int	ft_atoi(char *str)
 
 /*int   main(void)
 {
-	char    num[] = "-47-5";
+	//char    num[] = "-1000043";
 
-	printf("result: %d\n", atoi(num));
-	printf("ft_result: %d\n", ft_atoi(num));
+	printf("   result: %d\n", atoi("  -1+1"));
+	printf("ft_result: %d\n", ft_atoi("  -1+1"));
 
 	return (0);
 }*/
