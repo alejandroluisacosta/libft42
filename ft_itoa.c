@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 15:09:36 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/30 11:32:12 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/02/01 11:38:06 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ char	*copy_min_integer(void)
 
 	str = "-2147483648";
 	min_int = malloc(12 * sizeof(char));
+	if (!min_int)
+		return (NULL);
 	ft_strlcpy(min_int, str, 12);
 	return (min_int);
 }

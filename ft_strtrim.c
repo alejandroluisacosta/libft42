@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 09:34:43 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/19 12:04:07 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/02/01 11:33:37 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	forward_trim(char const *s1, char const *set)
 	int	j;
 	int	start;
 
+	if (!s1[0])
+		return (0);
 	i = 0;
 	j = 0;
 	start = 0;
@@ -44,6 +46,8 @@ int	backwards_trim(char const *s1, char const *set)
 	int	j;
 	int	end;
 
+	if (!s1[0])
+		return (0);
 	i = ft_strlen(s1) - 1;
 	j = 0;
 	end = 0;
@@ -84,10 +88,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		ft_strlcpy(new_str, (s1 + start), (new_len + 1));
 	}
 	else
-	{
-		new_str = malloc(1 * sizeof(char));
-		new_str[0] = '\0';
-	}
+		new_str = ft_calloc(1, sizeof(char));
 	return (new_str);
 }
 

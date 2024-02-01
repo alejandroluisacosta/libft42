@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:04:46 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/31 16:09:09 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/02/01 16:14:44 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,30 +91,33 @@ char	**ft_split(char const *s, char c)
 	char	**array;
 
 	sub_count = substr_count(s, c);
-	if (sub_count == 0 || ft_strlen(s) == 0)
+	if (!s || !s[0] || all_c(s, c) || sub_count == 0)
+	{
+		printf("here\n");
 		array = ft_calloc(2, sizeof(char *));
+	}
 	else
 		array = ft_calloc((sub_count + 1), sizeof(char *));
 	if (!array)
 		return (NULL);
-	if (!s || ft_strlen(s) == 0 || all_c(s, c) || sub_count == 0)
+	if (!s || !s[0] || all_c(s, c) || sub_count == 0)
 	{
-		if (!s[0] || all_c(s, c) || ft_strlen(s) == 0)
+		if (!s[0] || all_c(s, c))
 			array[0] = NULL;
 		else
-			array[0] = substr_write((char *)s, ft_strlen(s), 0);
+			array[0] = substr_write(s, ft_strlen(s), 0);
 	}
 	if (sub_count > 0)
 		substr_divide(array, s, c, sub_count);
 	return (array);
 }
 
-/*int	main(void)
+int	main(void)
 {
 	char *s;
 	//char c = ' ';
 	s = "Hello";
-	char **array = ft_split(0, 0);
+	char **array = ft_split("hello!", ' ');
 
 	int i = 0;
 	while (array[i])
@@ -124,4 +127,4 @@ char	**ft_split(char const *s, char c)
 	}
 
 	return (0);
-}*/
+}
