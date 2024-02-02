@@ -6,12 +6,10 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 12:40:41 by aacosta           #+#    #+#             */
-/*   Updated: 2024/02/01 15:28:02 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/02/02 12:42:03 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
 void	*ft_calloc(size_t count, size_t size)

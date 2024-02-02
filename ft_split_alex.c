@@ -6,7 +6,7 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 12:04:46 by aacosta           #+#    #+#             */
-/*   Updated: 2024/02/02 16:53:10 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/02/02 15:05:14 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	substr_count(char const *s, char c)
 	int	i;
 	int	count;
 
-	if (!*s ||  !s || !c)
+	if (!s || !c)
 		return (0);
 	i = 0;
 	count = 0;
@@ -38,20 +38,21 @@ int	substr_count(char const *s, char c)
 	return (count);
 }
 
-static void	mem_free(char **array)
+void	mem_free(char **array, int index)
 {
 	int	i;
 
 	i = 0;
-	while (array[i] != NULL)
+	while (i < index)
 	{
+		printf("i = %d | index = %d\n", i, index);
 		free(array[i]);
 		i++;
 	}
-	free(array);
+	//free(array);
 }
 
-static int	substr_divide(char **array, char const *s, char c, int sub_count)
+void	substr_divide(char **array, char const *s, char c, int sub_count)
 {
 	int	cut_point;
 	int	last_c;
@@ -60,7 +61,6 @@ static int	substr_divide(char **array, char const *s, char c, int sub_count)
 	cut_point = 0;
 	last_c = 0;
 	copied_count = 0;
-
 	while (copied_count < sub_count)
 	{
 		if (s[cut_point] == c)
@@ -72,16 +72,10 @@ static int	substr_divide(char **array, char const *s, char c, int sub_count)
 		while (s[cut_point] && s[cut_point] != c)
 			cut_point++;
 		array[copied_count] = ft_substr(s, last_c, (cut_point - last_c));
-		printf("array[copied] = %s\n", array[copied_count]);
 		if (!array[copied_count])
-		{
-			mem_free(array);
-			return 1;
-		}
+			mem_free(array, copied_count);
 		copied_count++;
 	}
-	array[copied_count] = NULL;
-	return 0;
 }
 
 int	all_c(char const *s, char c)
@@ -99,25 +93,36 @@ int	all_c(char const *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	int		sub_count;
-	int		err = 0;
 	char	**array;
 
-	if (!s)
-		return NULL;
-	printf("not here\n");
 	sub_count = substr_count(s, c);
-	array = calloc((sub_count + 1), sizeof(char *));
+/*	if (!s || !s[0] || all_c(s, c) || sub_count == 0)
+		array = ft_calloc(2, sizeof(char *));
+	else*/
+		array = ft_calloc((sub_count + 1), sizeof(char *));
+	printf("array adi = %p\n", array);
 	if (!array)
 		return (NULL);
-	if (*s && all_c(s, c) != 1)	
-		err = substr_divide(array, s, c, sub_count);
-	if (all_c(s, c) == 1 || sub_count == 0)
+	if (!s || !s[0] || all_c(s, c) || sub_count == 0)
 	{
-		mem_free(array);
-		return NULL;
+		if (!s[0] || all_c(s, c))
+			array[0] = NULL;
+		else
+		{
+			array[0] = ft_substr(s, 0, ft_strlen(s));
+			printf("array[0] adi = %p\n", &array[0]);
+			if (!array[0])
+			{
+				mem_free(array, 1);
+				return NULL;
+			}
+		}
 	}
-	if (err == 1)
-		return NULL;
+	else
+		substr_divide(array, s, c, sub_count);
+	printf("i am alivee\n");
+	/*if (!array)
+		return (NULL);*/
 	return (array);
 }
 
