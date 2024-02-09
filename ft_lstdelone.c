@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/07 14:36:03 by aacosta           #+#    #+#             */
-/*   Updated: 2024/02/09 13:15:20 by aacosta          ###   ########.fr       */
+/*   Created: 2024/02/09 13:12:28 by aacosta           #+#    #+#             */
+/*   Updated: 2024/02/09 14:49:02 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	del(void *node)
 {
-	t_list	*new_node;
-
-	new_node = malloc(1 * sizeof(t_list));
-	if (!new_node)
-		return (NULL);
-	new_node->content = content;
-	new_node->next = NULL;
-	return (new_node);
+	free(node);
 }
 
-/*int	main(void)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	t_list *new_node = ft_lstnew((void *)NULL);
-	printf("new node's content: %d\n", (int)new_node->content);
-	printf("new node's 'next': %p\n", new_node->next);
-}*/
+	del((void *)lst);
+	free(lst);
+}
+
+int	main(void)
+{
+	t_list *node = ft_lstnew((void *)(size_t)1);
+	printf("%d\n", (int)node->content);
+	ft_lstdelone(node, del);
+	printf("%d\n", (int)node->content);
+}

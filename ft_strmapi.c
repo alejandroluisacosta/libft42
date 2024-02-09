@@ -6,28 +6,11 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 12:30:19 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/24 16:54:21 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/02/09 13:21:16 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*char	f(unsigned int index, char c)
-{
-	char	*p;
-	char	copy;
-
-	p = malloc(1 * sizeof(char));
-	if (p == NULL)
-		return ('\0');
-	if (index == 0)
-		*p = ft_toupper(c);
-	else
-		*p = ft_tolower(c);
-	copy = *p;
-	free (p);
-	return (copy);
-}*/
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
