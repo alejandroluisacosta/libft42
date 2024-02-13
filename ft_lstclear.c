@@ -6,38 +6,11 @@
 /*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 10:24:41 by aacosta           #+#    #+#             */
-/*   Updated: 2024/02/12 13:28:33 by aacosta          ###   ########.fr       */
+/*   Updated: 2024/02/13 11:25:13 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/*static void	del(void *ptr)
-{
-	t_list	*ptr1 = malloc(sizeof(void *));
-	t_list	*ptr2 = malloc(sizeof(void *));	
-	if (!ptr1 || !ptr2)
-		return ;
-
-	ptr1 = *ptr;
-	ptr2 = ptr1;
-	free(ptr);
-	while (ptr1->next)
-	{
-		ptr1 = ptr1->next;
-		
-		ptr2 = ptr1;
-	}
-	ft_lstdelone(ptr1, del);
-	free(ptr1);
-	free(ptr2);
-}*/
-
-static void	del(void *lst)
-{
-	free(lst->content);
-	free(lst);
-}
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
@@ -48,12 +21,12 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		free(*lst);
 		return ;
 	}
-	ft_lstclear(lst->next, del);
-	del((void *)*lst);
+	ft_lstclear((t_list **)(*lst)->next, del);
+	del((void *)(*lst)->content);
 	free(lst);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	t_list **lst = malloc(sizeof(t_list *));
 	*lst = malloc(sizeof(void *));
@@ -78,4 +51,4 @@ int	main(void)
 	printf("no more nodes\n");
 	ft_lstclear(lst, del);
 	printf("%d\n", (int)ptr->content);
-}
+}*/
