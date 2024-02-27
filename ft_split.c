@@ -3,55 +3,55 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aacosta <aacosta@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 12:04:46 by aacosta           #+#    #+#             */
-/*   Updated: 2024/02/02 16:53:10 by aacosta          ###   ########.fr       */
+/*   Created: 2024/02/27 16:32:37 by aacosta           #+#    #+#             */
+/*   Updated: 2024/02/27 16:33:12 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	substr_count(char const *s, char c)
+static int	substr_count(char const *s, char c)
 {
 	int	i;
 	int	count;
+	int	found;
 
-	if (!*s ||  !s || !c)
-		return (0);
+	if (!s || !c)
+		return (1);
 	i = 0;
-	count = 0;
+	count = 1;
+	found = 0;
 	while (s[i])
 	{
-		if (count == 0)
-		{
-			if (s[i] != c)
-			{
-				count++;
-				i++;
-			}
-		}
+		if (i == 0 && s[i] != c)
+			found = 1;
 		if (i > 0 && s[i] != c && s[i - 1] == c)
-			count++;
+		{
+			if (found != 0)
+				count++;
+			found = 1;
+		}
 		i++;
 	}
 	return (count);
 }
 
-static void	mem_free(char **array)
+static void	mem_free(char **array, int index)
 {
 	int	i;
 
 	i = 0;
-	while (array[i] != NULL)
+	while (i < index)
 	{
 		free(array[i]);
 		i++;
 	}
-	free(array);
+	free (array);
 }
 
-static int	substr_divide(char **array, char const *s, char c, int sub_count)
+static void	substr_divide(char **array, char const *s, char c, int sub_count)
 {
 	int	cut_point;
 	int	last_c;
@@ -60,7 +60,6 @@ static int	substr_divide(char **array, char const *s, char c, int sub_count)
 	cut_point = 0;
 	last_c = 0;
 	copied_count = 0;
-
 	while (copied_count < sub_count)
 	{
 		if (s[cut_point] == c)
@@ -72,19 +71,13 @@ static int	substr_divide(char **array, char const *s, char c, int sub_count)
 		while (s[cut_point] && s[cut_point] != c)
 			cut_point++;
 		array[copied_count] = ft_substr(s, last_c, (cut_point - last_c));
-		printf("array[copied] = %s\n", array[copied_count]);
 		if (!array[copied_count])
-		{
-			mem_free(array);
-			return 1;
-		}
+			mem_free(array, copied_count);
 		copied_count++;
 	}
-	array[copied_count] = NULL;
-	return 0;
 }
 
-int	all_c(char const *s, char c)
+static int	all_c(char const *s, char c)
 {
 	int	i;
 
@@ -99,34 +92,25 @@ int	all_c(char const *s, char c)
 char	**ft_split(char const *s, char c)
 {
 	int		sub_count;
-	int		err = 0;
 	char	**array;
 
-	if (!s)
-		return NULL;
-	printf("not here\n");
 	sub_count = substr_count(s, c);
-	array = calloc((sub_count + 1), sizeof(char *));
+	array = ft_calloc((sub_count + 1), sizeof(char *));
 	if (!array)
 		return (NULL);
-	if (*s && all_c(s, c) != 1)	
-		err = substr_divide(array, s, c, sub_count);
-	if (all_c(s, c) == 1 || sub_count == 0)
-	{
-		mem_free(array);
-		return NULL;
-	}
-	if (err == 1)
-		return NULL;
+	if (!s[0] || all_c(s, c))
+		array[0] = NULL;
+	else
+		substr_divide(array, s, c, sub_count);
 	return (array);
 }
 
 /*int	main(void)
 {
-	char *s;
+	//char *s;
 	//char c = ' ';
-	s = "Hello";
-	char **array = ft_split("hello!", ' ');
+	//s = "Hello";
+	char **array = ft_split("tripouille", ' ');
 
 	int i = 0;
 	while (array[i])
@@ -134,6 +118,7 @@ char	**ft_split(char const *s, char c)
 		printf("%dth string: %s\n", i, array[i]);
 		i++;
 	}
+	system("leaks -q a.out");
 
 	return (0);
 }*/

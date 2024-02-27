@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aacosta <aacosta@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/19 09:34:43 by aacosta           #+#    #+#             */
-/*   Updated: 2024/02/01 11:33:37 by aacosta          ###   ########.fr       */
+/*   Created: 2024/02/27 16:37:59 by aacosta           #+#    #+#             */
+/*   Updated: 2024/02/27 16:38:14 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	forward_trim(char const *s1, char const *set)
+static int	forward_trim(char const *s1, char const *set)
 {
 	int	i;
 	int	j;
@@ -40,7 +40,7 @@ int	forward_trim(char const *s1, char const *set)
 	return (start);
 }
 
-int	backwards_trim(char const *s1, char const *set)
+static int	backwards_trim(char const *s1, char const *set)
 {
 	int	i;
 	int	j;

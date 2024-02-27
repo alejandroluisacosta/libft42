@@ -3,15 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aacosta <aacosta@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 13:09:57 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/15 15:31:19 by aacosta          ###   ########.fr       */
+/*   Created: 2024/02/27 16:30:52 by aacosta           #+#    #+#             */
+/*   Updated: 2024/02/27 16:30:55 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
 #include "libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)

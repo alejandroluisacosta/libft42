@@ -3,15 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aacosta <aacosta@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 13:03:20 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/30 12:28:43 by aacosta          ###   ########.fr       */
+/*   Created: 2024/02/27 16:29:24 by aacosta           #+#    #+#             */
+/*   Updated: 2024/02/27 16:29:28 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
 void	*ft_memchr(void *s, int c, size_t n)

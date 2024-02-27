@@ -3,16 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aacosta <aacosta@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/16 16:24:02 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/31 16:49:08 by aacosta          ###   ########.fr       */
+/*   Created: 2024/02/27 16:33:41 by aacosta           #+#    #+#             */
+/*   Updated: 2024/02/27 16:33:47 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strdup(char *s1)

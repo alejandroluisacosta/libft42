@@ -3,15 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aacosta <aacosta@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 13:18:37 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/30 12:45:49 by aacosta          ###   ########.fr       */
+/*   Created: 2024/02/27 16:37:31 by aacosta           #+#    #+#             */
+/*   Updated: 2024/02/27 16:37:35 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
 char	*ft_strnstr(char *haystack, char *needle, size_t len)

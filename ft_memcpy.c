@@ -3,15 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aacosta <aacosta@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 13:06:43 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/31 09:47:46 by aacosta          ###   ########.fr       */
+/*   Created: 2024/02/27 16:30:09 by aacosta           #+#    #+#             */
+/*   Updated: 2024/02/27 16:30:18 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
 #include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)

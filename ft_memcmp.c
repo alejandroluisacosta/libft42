@@ -3,15 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aacosta <aacosta@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 13:05:21 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/16 11:41:28 by aacosta          ###   ########.fr       */
+/*   Created: 2024/02/27 16:29:49 by aacosta           #+#    #+#             */
+/*   Updated: 2024/02/27 16:29:55 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
 int	ft_memcmp(void *s1, void *s2, size_t n)

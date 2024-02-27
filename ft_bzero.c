@@ -3,15 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aacosta <aacosta@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 12:57:33 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/15 12:58:52 by aacosta          ###   ########.fr       */
+/*   Created: 2024/02/27 16:21:41 by aacosta           #+#    #+#             */
+/*   Updated: 2024/02/27 16:24:06 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <strings.h>
 #include "libft.h"
 
 void	ft_bzero(void *s, size_t n)

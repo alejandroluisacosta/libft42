@@ -3,15 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aacosta <aacosta@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 13:07:49 by aacosta           #+#    #+#             */
-/*   Updated: 2024/01/30 11:51:01 by aacosta          ###   ########.fr       */
+/*   Created: 2024/02/27 16:30:34 by aacosta           #+#    #+#             */
+/*   Updated: 2024/02/27 16:30:37 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
 #include "libft.h"
 
 void	*ft_memmove(void *dst, void *src, size_t len)

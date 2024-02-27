@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aacosta <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aacosta <aacosta@student.42madrid.>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 15:09:36 by aacosta           #+#    #+#             */
-/*   Updated: 2024/02/01 11:38:06 by aacosta          ###   ########.fr       */
+/*   Created: 2024/02/27 16:25:31 by aacosta           #+#    #+#             */
+/*   Updated: 2024/02/27 16:25:59 by aacosta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	digit_count(int n)
+static int	digit_count(int n)
 {
 	int	digits;
 
@@ -30,7 +30,7 @@ int	digit_count(int n)
 	return (digits);
 }
 
-char	*copy_min_integer(void)
+static char	*copy_min_integer(void)
 {
 	char	*min_int;
 	char	*str;
